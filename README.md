@@ -31,7 +31,7 @@ upload it, or do; it's harmless on a static host.)
 
 ## Before going live
 
-1. **AdSense** — the site-level loader script (ca-pub-5418962813768600) is in
+1. **AdSense** — the site-level loader script (ca-pub-7686583236583712) is in
    the `<head>` of every page, and `ads.txt` is at the root. Remaining: once
    the site is approved, either enable **Auto ads** in the AdSense dashboard
    (then consider removing the placeholder `.ad-slot` boxes), or create
