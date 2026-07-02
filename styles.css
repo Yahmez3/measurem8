@@ -265,6 +265,14 @@ option:disabled, option.incompatible { color: #b9c4c0; }
   box-shadow: 0 6px 16px -8px var(--glow);
 }
 
+.chip-row--wrap { flex-wrap: wrap; overflow: visible; }
+
+/* ---------- Breadcrumbs / converter subpages ---------- */
+.crumbs { font-size: 0.85rem; color: var(--muted); margin: 18px 0 -18px; }
+.crumbs a { color: inherit; }
+.crumbs a:hover { color: var(--accent-ink); }
+.field-grid { display: grid; gap: 4px; }
+
 /* ---------- Ad slots (paste AdSense code inside) ---------- */
 .ad-slot {
   position: relative;
