@@ -12,6 +12,28 @@
 (function () {
   'use strict';
 
+  /* ---------- Scroll reveal (site-wide, decorative) ----------
+   * CSS only hides [data-reveal] when html.js is present, so content
+   * stays visible if this script ever fails to run. */
+  document.documentElement.classList.add('js');
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (revealEls.length) {
+    if ('IntersectionObserver' in window &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('revealed');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -40px 0px', threshold: 0 });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('revealed'); });
+    }
+  }
+
   /* ---------------- Unit data ----------------
    * Linear families: `factor` converts one of the unit into the family's
    * base unit (m, kg, L, m², m/s, s, byte, J, Pa). All factors are the
@@ -225,7 +247,7 @@
 
   /* ---------------- Formatting ---------------- */
   function fmt(n) {
-    if (typeof n !== 'number' || !isFinite(n)) return '—';
+    if (typeof n !== 'number' || !isFinite(n)) return '···';
     if (n === 0) return '0';
     var abs = Math.abs(n);
     if (abs >= 1e15 || abs < 1e-6) {
@@ -234,6 +256,16 @@
     }
     var r = Number(n.toPrecision(8));
     return r.toLocaleString('en-US', { maximumFractionDigits: 12 });
+  }
+
+  /* retrigger the result pulse animation (CSS gates it behind
+     prefers-reduced-motion) */
+  function pulseResult(valueEl) {
+    var main = valueEl.parentElement;
+    if (!main || !main.classList) return;
+    main.classList.remove('pulse');
+    void main.offsetWidth;
+    main.classList.add('pulse');
   }
 
   function parseAmount(input) {
@@ -251,7 +283,7 @@
     '<div class="converter card">' +
       '<div class="tabs" role="tablist" aria-label="Converter mode">' +
         '<button type="button" class="tab" id="tab-units" role="tab" aria-selected="true" aria-controls="panel-units">Unit Converter</button>' +
-        '<button type="button" class="tab" id="tab-cooking" role="tab" aria-selected="false" aria-controls="panel-cooking">🍳 Cooking Converter</button>' +
+        '<button type="button" class="tab" id="tab-cooking" role="tab" aria-selected="false" aria-controls="panel-cooking">Cooking Converter</button>' +
       '</div>' +
       '<section class="panel" id="panel-units" role="tabpanel" aria-labelledby="tab-units">' +
         '<div class="field">' +
@@ -264,11 +296,11 @@
           '<div class="field"><label for="uc-to">To</label><select id="uc-to"></select></div>' +
         '</div>' +
         '<div class="result">' +
-          '<div class="result-main"><span id="uc-result" aria-live="polite">—</span>' +
+          '<div class="result-main"><span id="uc-result" aria-live="polite">···</span>' +
           '<button type="button" class="copy" id="uc-copy" title="Copy result">Copy</button></div>' +
           '<div class="result-sub" id="uc-rate"></div>' +
         '</div>' +
-        '<p class="tool-note">Greyed-out units belong to a different measurement family and can’t be selected — you can’t convert millilitres to Kelvin.</p>' +
+        '<p class="tool-note">Greyed-out units belong to a different measurement family and can’t be selected: you can’t convert millilitres to Kelvin.</p>' +
       '</section>' +
       '<section class="panel" id="panel-cooking" role="tabpanel" aria-labelledby="tab-cooking" hidden>' +
         '<div class="field">' +
@@ -285,11 +317,11 @@
           '<div class="field"><label for="ck-to">To</label><select id="ck-to"></select></div>' +
         '</div>' +
         '<div class="result">' +
-          '<div class="result-main"><span id="ck-result" aria-live="polite">—</span>' +
+          '<div class="result-main"><span id="ck-result" aria-live="polite">···</span>' +
           '<button type="button" class="copy" id="ck-copy" title="Copy result">Copy</button></div>' +
           '<div class="result-sub" id="ck-density"></div>' +
         '</div>' +
-        '<p class="tool-note">Volume ↔ weight uses each ingredient’s real density (US cup = 240 mL, spoon-and-level), so 1 cup of flour and 1 cup of sugar give different grams.</p>' +
+        '<p class="tool-note">Volume-to-weight uses each ingredient’s real density (US cup = 240 mL, spoon-and-level), so 1 cup of flour and 1 cup of sugar give different grams.</p>' +
       '</section>' +
     '</div>';
 
@@ -363,17 +395,18 @@
     var v = parseAmount(ucAmount);
     var from = UNIT_MAP[ucFrom.value], to = UNIT_MAP[ucTo.value];
     if (!from || !to) {
-      ucResult.textContent = '—';
+      ucResult.textContent = '···';
       ucRate.textContent = '';
       return;
     }
     if (isNaN(v)) {
-      ucResult.textContent = '—';
+      ucResult.textContent = '···';
       ucRate.textContent = 'Enter an amount above to convert.';
       return;
     }
     var out = convertUnits(v, ucFrom.value, ucTo.value);
     ucResult.textContent = fmt(out) + ' ' + to.unit.symbol;
+    pulseResult(ucResult);
     if (from.family.id === 'temperature') {
       ucRate.textContent = ucFrom.value === ucTo.value
         ? fmt(v) + ' ' + from.unit.symbol + ' = ' + fmt(out) + ' ' + to.unit.symbol
@@ -387,19 +420,20 @@
     var v = parseAmount(ckAmount);
     var ing = ING_MAP[ckIng.value], from = CK_MAP[ckFrom.value], to = CK_MAP[ckTo.value];
     if (!ing || !from || !to) {
-      ckResult.textContent = '—';
+      ckResult.textContent = '···';
       ckDensity.textContent = '';
       return;
     }
     var densityLine = 'Density: 1 cup ≈ ' + ing.gramsPerCup + ' g' +
       (ing.note ? ' (' + ing.note + ')' : '');
     if (isNaN(v) || v < 0) {
-      ckResult.textContent = '—';
+      ckResult.textContent = '···';
       ckDensity.textContent = densityLine;
       return;
     }
     var out = convertCooking(v, ckFrom.value, ckTo.value, ckIng.value);
     ckResult.textContent = fmt(out) + ' ' + to.symbol;
+    pulseResult(ckResult);
     ckDensity.textContent = fmt(v) + ' ' + from.symbol + ' of ' + ing.name.toLowerCase() +
       ' = ' + fmt(out) + ' ' + to.symbol + ' · ' + densityLine;
   }

@@ -13,6 +13,7 @@
 <meta property="og:description" content="Free universal unit converter for length, weight, volume, temperature, area, speed, pressure and more — plus an ingredient-accurate cups to grams cooking converter. Fast, mobile-friendly, no sign-up.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7686583236583712" crossorigin="anonymous"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f766e'/%3E%3Ctext x='50' y='70' font-size='54' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%87%84%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script src="app.js" defer></script>
 <script type="application/ld+json">
@@ -47,49 +48,40 @@
 <main id="main">
   <div class="container">
 
-    <section class="hero">
-      <h1>Universal Unit Converter</h1>
-      <p class="tagline">Instant conversions for length, weight, volume, temperature and more — plus a cooking converter that knows 1&nbsp;cup of flour is not 1&nbsp;cup of sugar.</p>
+    <section class="hero-split">
+      <div class="hero-copy rise">
+        <h1>Convert anything.<br>Get it <em>right.</em></h1>
+        <p class="tagline">Ten unit families plus a cooking converter with real ingredient densities. Free, instant, no sign-up.</p>
+      </div>
+      <div id="converter-root" class="rise rise-2" data-tab="units" data-from="cm" data-to="inch">
+        <noscript><p class="center-note">The converter needs JavaScript enabled to run.</p></noscript>
+      </div>
     </section>
-
-    <div id="converter-root" data-tab="units" data-from="cm" data-to="inch">
-      <noscript><p class="center-note">The converter needs JavaScript enabled to run.</p></noscript>
-    </div>
 
     <aside class="ad-slot" aria-label="Advertisement">
       <span class="ad-label">Advertisement</span>
       <!-- AdSense: paste your ad unit code here (slot 1 — below the tool) -->
     </aside>
 
-    <section class="quick-ref" id="common-conversions">
+    <section class="quick-ref" data-reveal>
+      <h2>Popular conversions</h2>
+      <nav class="chip-row" aria-label="Popular conversions">
+        <a class="chip" href="/cups-to-grams">Cups to grams</a>
+        <a class="chip" href="/cm-to-inches">cm to inches</a>
+        <a class="chip" href="/celsius-to-fahrenheit">°C to °F</a>
+        <a class="chip" href="/?from=km&amp;to=mile">km to miles</a>
+        <a class="chip" href="/?from=kg&amp;to=lb">kg to pounds</a>
+        <a class="chip" href="/?from=ml&amp;to=floz">mL to fl oz</a>
+        <a class="chip" href="/?from=mb&amp;to=gb">MB to GB</a>
+        <a class="chip" href="/?from=psi&amp;to=bar">psi to bar</a>
+        <a class="chip" href="/?tab=cooking&amp;ingredient=butter">Butter cups to grams</a>
+      </nav>
+    </section>
+
+    <section class="quick-ref" id="common-conversions" data-reveal>
       <h2>Common conversions at a glance</h2>
-      <div class="quick-tables">
-        <div class="card">
-          <h3>Length</h3>
-          <div class="table-wrap"><table>
-            <tbody>
-              <tr><td>1 inch</td><td>2.54 cm</td></tr>
-              <tr><td>1 foot</td><td>30.48 cm</td></tr>
-              <tr><td>1 yard</td><td>0.9144 m</td></tr>
-              <tr><td>1 mile</td><td>1.609 km</td></tr>
-              <tr><td>1 metre</td><td>3.281 ft</td></tr>
-              <tr><td>1 km</td><td>0.621 mi</td></tr>
-            </tbody>
-          </table></div>
-        </div>
-        <div class="card">
-          <h3>Weight</h3>
-          <div class="table-wrap"><table>
-            <tbody>
-              <tr><td>1 ounce</td><td>28.35 g</td></tr>
-              <tr><td>1 pound</td><td>453.6 g</td></tr>
-              <tr><td>1 kg</td><td>2.205 lb</td></tr>
-              <tr><td>1 stone</td><td>6.35 kg</td></tr>
-              <tr><td>1 tonne</td><td>2204.6 lb</td></tr>
-            </tbody>
-          </table></div>
-        </div>
-        <div class="card">
+      <div class="bento">
+        <div class="tile tile--deep tile--featured">
           <h3>Kitchen</h3>
           <div class="table-wrap"><table>
             <tbody>
@@ -99,11 +91,34 @@
               <tr><td>1 cup flour</td><td>≈ 120 g</td></tr>
               <tr><td>1 cup sugar</td><td>≈ 200 g</td></tr>
               <tr><td>1 cup butter</td><td>≈ 227 g</td></tr>
+              <tr><td>1 cup honey</td><td>≈ 340 g</td></tr>
             </tbody>
           </table></div>
           <p class="tool-note">Kitchen values use the 240&nbsp;mL cup convention; the Units tab uses the 236.6&nbsp;mL US customary cup.</p>
         </div>
-        <div class="card">
+        <div class="tile">
+          <h3>Length</h3>
+          <div class="table-wrap"><table>
+            <tbody>
+              <tr><td>1 inch</td><td>2.54 cm</td></tr>
+              <tr><td>1 foot</td><td>30.48 cm</td></tr>
+              <tr><td>1 mile</td><td>1.609 km</td></tr>
+              <tr><td>1 metre</td><td>3.281 ft</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="tile tile--soft">
+          <h3>Weight</h3>
+          <div class="table-wrap"><table>
+            <tbody>
+              <tr><td>1 ounce</td><td>28.35 g</td></tr>
+              <tr><td>1 pound</td><td>453.6 g</td></tr>
+              <tr><td>1 kg</td><td>2.205 lb</td></tr>
+              <tr><td>1 stone</td><td>6.35 kg</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="tile">
           <h3>Temperature</h3>
           <div class="table-wrap"><table>
             <tbody>
@@ -111,25 +126,35 @@
               <tr><td>37 °C</td><td>98.6 °F</td></tr>
               <tr><td>100 °C</td><td>212 °F</td></tr>
               <tr><td>180 °C</td><td>356 °F</td></tr>
-              <tr><td>−40 °C</td><td>−40 °F</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="tile">
+          <h3>Volume</h3>
+          <div class="table-wrap"><table>
+            <tbody>
+              <tr><td>1 litre</td><td>33.81 fl oz</td></tr>
+              <tr><td>1 US gallon</td><td>3.785 L</td></tr>
+              <tr><td>1 US pint</td><td>473 mL</td></tr>
+              <tr><td>1 tablespoon</td><td>3 tsp</td></tr>
             </tbody>
           </table></div>
         </div>
       </div>
     </section>
 
-    <article class="article" id="guide">
+    <article class="article" id="guide" data-reveal>
       <h2>How unit conversion works</h2>
-      <p>At its heart, unit conversion is multiplication. Every unit in a measurement family — length, mass, volume, area — can be written as a fixed multiple of that family's base unit. The metric system makes this obvious: a kilometre is exactly 1,000 metres and a centimetre is exactly one hundredth of a metre. What surprises many people is that imperial and US customary units are just as exact, because since 1959 they have been defined in metric terms. An inch is exactly 2.54 centimetres. A pound is exactly 453.59237 grams. There is no measuring or estimating involved — these are definitions, written into international agreements.</p>
+      <p>At its heart, unit conversion is multiplication. Every unit in a measurement family (length, mass, volume, area) can be written as a fixed multiple of that family's base unit. The metric system makes this obvious: a kilometre is exactly 1,000 metres and a centimetre is exactly one hundredth of a metre. What surprises many people is that imperial and US customary units are just as exact, because since 1959 they have been defined in metric terms. An inch is exactly 2.54 centimetres. A pound is exactly 453.59237 grams. There is no measuring or estimating involved. These are definitions, written into international agreements.</p>
       <p>A converter like the one above simply chains two of those definitions together. To turn 5 kilometres into yards, it converts kilometres into the base unit (5,000 metres), then divides by the yard's definition (0.9144 metres) to get 5,468.07 yards. Because both factors are exact, the only error you ever see is rounding in the final displayed digits.</p>
-      <p>Temperature is the famous exception. Celsius, Fahrenheit and Kelvin are not multiples of each other — their zero points sit in different places, so converting needs a shift as well as a scale: °F = °C × 9/5 + 32. That offset is why 0&nbsp;°C is 32&nbsp;°F rather than 0&nbsp;°F, and why you can never convert temperatures with a simple ratio the way you can metres and feet.</p>
-      <p>One more rule has no exceptions: families never cross. Metres cannot become kilograms, and millilitres cannot become Kelvin, because they measure entirely different physical things. That's why this converter greys out incompatible units the moment you pick a "from" unit — an impossible conversion shouldn't be one mis-tap away. The single useful bridge between two families is density, which links volume to weight — and that is exactly what the cooking converter uses.</p>
+      <p>Temperature is the famous exception. Celsius, Fahrenheit and Kelvin are not multiples of each other. Their zero points sit in different places, so converting needs a shift as well as a scale: °F = °C × 9/5 + 32. That offset is why 0&nbsp;°C is 32&nbsp;°F rather than 0&nbsp;°F, and why you can never convert temperatures with a simple ratio the way you can metres and feet.</p>
+      <p>One more rule has no exceptions: families never cross. Metres cannot become kilograms, and millilitres cannot become Kelvin, because they measure entirely different physical things. That's why this converter greys out incompatible units the moment you pick a "from" unit. An impossible conversion shouldn't be one mis-tap away. The single useful bridge between two families is density, which links volume to weight, and that is exactly what the cooking converter uses.</p>
 
       <h2>Why cups to grams depends on the ingredient</h2>
-      <p>Cups measure volume — how much space something fills. Grams measure mass — how much stuff is actually there. The bridge between them is density, and density is a property of the ingredient, not of the cup. Water is the tidy case: at roughly 1 gram per millilitre, a 240&nbsp;mL cup of water weighs about 240 grams. Almost nothing else in your pantry behaves so politely.</p>
-      <p>A cup of all-purpose flour weighs about 120 grams. A cup of granulated sugar weighs about 200 grams. Packed brown sugar comes in around 220 grams, honey at a hefty 340 grams, and airy cocoa powder at only about 85 grams. That is a fourfold spread between cocoa and honey — from the very same cup. Any converter that offers a single generic "cups to grams" answer is wrong for almost every ingredient; the question only has an answer once you know <em>what</em> is in the cup.</p>
-      <p>Even the same ingredient varies with handling. Scoop flour straight from the bag and you compact it — often 15–25% heavier than the standard. Sift it and it gets lighter. Humidity, brand and grind all nudge the number. Published baking charts solve this by assuming the "spoon and level" method: fluff the flour, spoon it into the cup, and level the top with a knife. Our cooking converter uses those published spoon-and-level densities per US cup (240&nbsp;mL) for more than 30 common ingredients, so 1 cup of flour and 1 cup of sugar correctly give different gram results.</p>
-      <p>The gold standard for baking is still a digital scale and a recipe written in grams. But the world's recipe boxes are full of cups and tablespoons, and an ingredient-aware converter will get you within a few percent — close enough for nearly everything you'll ever cook, and far better than guessing.</p>
+      <p>Cups measure volume: how much space something fills. Grams measure mass: how much stuff is actually there. The bridge between them is density, and density is a property of the ingredient, not of the cup. Water is the tidy case: at roughly 1 gram per millilitre, a 240&nbsp;mL cup of water weighs about 240 grams. Almost nothing else in your pantry behaves so politely.</p>
+      <p>A cup of all-purpose flour weighs about 120 grams. A cup of granulated sugar weighs about 200 grams. Packed brown sugar comes in around 220 grams, honey at a hefty 340 grams, and airy cocoa powder at only about 85 grams. That is a fourfold spread between cocoa and honey, from the very same cup. Any converter that offers a single generic "cups to grams" answer is wrong for almost every ingredient; the question only has an answer once you know <em>what</em> is in the cup.</p>
+      <p>Even the same ingredient varies with handling. Scoop flour straight from the bag and you compact it, often 15 to 25% heavier than the standard. Sift it and it gets lighter. Humidity, brand and grind all nudge the number. Published baking charts solve this by assuming the "spoon and level" method: fluff the flour, spoon it into the cup, and level the top with a knife. Our cooking converter uses those published spoon-and-level densities per US cup (240&nbsp;mL) for more than 30 common ingredients, so 1 cup of flour and 1 cup of sugar correctly give different gram results.</p>
+      <p>The gold standard for baking is still a digital scale and a recipe written in grams. But the world's recipe boxes are full of cups and tablespoons, and an ingredient-aware converter will get you within a few percent. That is close enough for nearly everything you'll ever cook, and far better than guessing.</p>
 
       <aside class="ad-slot" aria-label="Advertisement">
         <span class="ad-label">Advertisement</span>
@@ -139,22 +164,22 @@
       <h2>Common conversion mistakes (and how to avoid them)</h2>
       <p>Most conversion disasters come from a handful of repeat offenders. Watch for these:</p>
       <ul>
-        <li><strong>Ounces versus fluid ounces.</strong> An ounce is weight; a fluid ounce is volume. A fluid ounce of honey weighs about one and a half ounces. Recipes that just say "ounces" of a liquid usually mean fluid ounces — but check.</li>
-        <li><strong>Assuming every cup is the same cup.</strong> A US cup is 240&nbsp;mL (236.6&nbsp;mL in the older customary definition), while an Australian metric cup is 250&nbsp;mL. UK recipes rarely use cups at all — and a UK pint (568&nbsp;mL) is 20% bigger than a US pint (473&nbsp;mL).</li>
+        <li><strong>Ounces versus fluid ounces.</strong> An ounce is weight; a fluid ounce is volume. A fluid ounce of honey weighs about one and a half ounces. Recipes that just say "ounces" of a liquid usually mean fluid ounces, but check.</li>
+        <li><strong>Assuming every cup is the same cup.</strong> A US cup is 240&nbsp;mL (236.6&nbsp;mL in the older customary definition), while an Australian metric cup is 250&nbsp;mL. UK recipes rarely use cups at all, and a UK pint (568&nbsp;mL) is 20% bigger than a US pint (473&nbsp;mL).</li>
         <li><strong>Ton, tonne and ton.</strong> A metric tonne is 1,000&nbsp;kg, a US short ton is about 907&nbsp;kg, and a UK long ton about 1,016&nbsp;kg. Always confirm which one a figure means.</li>
         <li><strong>Calories that are really kilocalories.</strong> Food "Calories" (capital C) are kilocalories. The 250 calories on a snack label are 250,000 of the small scientific calories.</li>
-        <li><strong>Kilobytes: 1,000 or 1,024?</strong> The SI definition — used by this tool, drive manufacturers and most operating systems today — is 1&nbsp;kB = 1,000 bytes. The binary 1,024-byte unit is properly called a kibibyte (KiB), and the mismatch is why a "1&nbsp;TB" drive can show up as 931 units in software that counts in binary.</li>
-        <li><strong>Treating temperature like a ratio.</strong> Doubling 10&nbsp;°C does not give you "twice as hot", and you can't convert °C to °F by multiplying alone — the +32 offset is not optional.</li>
-        <li><strong>Rounding too early.</strong> Converting an already-rounded number, then rounding again, compounds error fast — especially when scaling a recipe up. Always convert from the original value and round once, at the end.</li>
+        <li><strong>Kilobytes: 1,000 or 1,024?</strong> The SI definition, used by this tool, drive manufacturers and most operating systems today, is 1&nbsp;kB = 1,000 bytes. The binary 1,024-byte unit is properly called a kibibyte (KiB), and the mismatch is why a "1&nbsp;TB" drive can show up as 931 units in software that counts in binary.</li>
+        <li><strong>Treating temperature like a ratio.</strong> Doubling 10&nbsp;°C does not give you "twice as hot", and you can't convert °C to °F by multiplying alone. The +32 offset is not optional.</li>
+        <li><strong>Rounding too early.</strong> Converting an already-rounded number, then rounding again, compounds error fast, especially when scaling a recipe up. Always convert from the original value and round once, at the end.</li>
       </ul>
 
       <h2>Five habits for accurate measuring</h2>
       <ol>
         <li><strong>Weigh when you bake.</strong> Bread and pastry are chemistry; grams beat cups every time precision matters.</li>
         <li><strong>Tare the scale</strong> with the empty bowl on it, so you measure the ingredient and not the crockery.</li>
-        <li><strong>Spoon and level dry ingredients</strong> when a recipe gives cups — never pack flour unless it says to (brown sugar is the exception that should be packed).</li>
+        <li><strong>Spoon and level dry ingredients</strong> when a recipe gives cups. Never pack flour unless it says to (brown sugar is the exception that should be packed).</li>
         <li><strong>Read liquids at eye level</strong> in a clear jug placed on a flat surface, not held in the air.</li>
-        <li><strong>Sanity-check the magnitude.</strong> If a conversion result looks ten times too big or too small, it probably is — a quick mental estimate ("a kilo is about two pounds") catches most slips.</li>
+        <li><strong>Sanity-check the magnitude.</strong> If a conversion result looks ten times too big or too small, it probably is. A quick mental estimate ("a kilo is about two pounds") catches most slips.</li>
       </ol>
       <p>Got a question we haven't covered? The <a href="/faq">FAQ</a> answers the ones we hear most, and the <a href="/cups-to-grams">cups to grams converter</a> has a printable chart of the most common baking ingredients.</p>
     </article>
@@ -198,7 +223,7 @@
         </ul>
       </div>
     </div>
-    <p class="footer-fine">© 2026 MeasureMate. Conversions are provided for general information — always double-check measurements that matter.</p>
+    <p class="footer-fine">© 2026 MeasureMate. Conversions are provided for general information. Always double-check measurements that matter.</p>
   </div>
 </footer>
 

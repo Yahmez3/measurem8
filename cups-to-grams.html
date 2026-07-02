@@ -13,6 +13,7 @@
 <meta property="og:description" content="Convert cups to grams accurately for flour, sugar, butter, honey and 30+ ingredients. Ingredient-specific densities — because 1 cup of flour is not 1 cup of sugar.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7686583236583712" crossorigin="anonymous"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f766e'/%3E%3Ctext x='50' y='70' font-size='54' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%87%84%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script src="app.js" defer></script>
 </head>
@@ -37,7 +38,7 @@
 
     <section class="hero page-hero">
       <h1>Cups to grams converter</h1>
-      <p class="tagline">Ingredient-specific conversions for 30+ pantry staples — because a cup of flour, a cup of sugar and a cup of honey all weigh very different amounts.</p>
+      <p class="tagline">Ingredient-specific conversions for 30+ pantry staples. A cup of flour, a cup of sugar and a cup of honey all weigh very different amounts.</p>
     </section>
 
     <div id="converter-root" data-tab="cooking" data-ingredient="flour" data-ck-from="cup" data-ck-to="g"></div>
@@ -47,13 +48,13 @@
       <!-- AdSense: paste your ad unit code here (slot 1 — below the tool) -->
     </aside>
 
-    <div class="page-content">
+    <div class="page-content" data-reveal>
 
       <h2>Why cups to grams depends on the ingredient</h2>
-      <p>A cup measures volume — the space an ingredient takes up. A gram measures weight — how much of it is actually there. There is no single number that converts one to the other, because the bridge between volume and weight is density, and density belongs to the ingredient, not the cup. Dense ingredients pack a lot of weight into the same space; light, airy ones barely register.</p>
+      <p>A cup measures volume: the space an ingredient takes up. A gram measures weight: how much of it is actually there. There is no single number that converts one to the other, because the bridge between volume and weight is density, and density belongs to the ingredient, not the cup. Dense ingredients pack a lot of weight into the same space; light, airy ones barely register.</p>
       <p>The numbers make the point better than any explanation. One cup of all-purpose flour weighs about 120 grams. The same cup filled with granulated sugar weighs 200 grams. Fill it with honey and you are holding 340 grams; fill it with cocoa powder and you have just 85. That is a fourfold difference from one identical cup, which is why a generic "1 cup = X grams" rule will ruin a recipe more often than it saves one.</p>
-      <p>The converter above accounts for this properly. Pick your ingredient, enter the amount, and it applies that ingredient's own density to give you an accurate weight. It uses a US cup of 240&nbsp;mL — the standard in most modern recipes — and spoon-and-level densities, the convention used by published baking charts. Note that an Australian metric cup is slightly larger at 250&nbsp;mL, so add roughly 4% if your recipe is written for one.</p>
-      <p>If you bake regularly, a digital scale is still the most reliable tool in the kitchen. But when a recipe hands you cups and your scale speaks grams, an ingredient-aware conversion gets you within a few percent — close enough for nearly everything you will cook.</p>
+      <p>The converter above accounts for this properly. Pick your ingredient, enter the amount, and it applies that ingredient's own density to give you an accurate weight. It uses a US cup of 240&nbsp;mL (the standard in most modern recipes) and spoon-and-level densities, the convention used by published baking charts. Note that an Australian metric cup is slightly larger at 250&nbsp;mL, so add roughly 4% if your recipe is written for one.</p>
+      <p>If you bake regularly, a digital scale is still the most reliable tool in the kitchen. But when a recipe hands you cups and your scale speaks grams, an ingredient-aware conversion gets you within a few percent, close enough for nearly everything you will cook.</p>
 
       <h2>Cups to grams chart</h2>
       <p>All figures use a US 240&nbsp;mL cup and spoon-and-level measuring, rounded to the nearest gram. They match the converter above exactly.</p>
@@ -82,8 +83,8 @@
       </div>
 
       <h2>How to measure cups correctly</h2>
-      <p>Every figure on this page assumes the spoon-and-level method, and it matters more than most cooks realise. First, fluff the ingredient in its container — flour in particular settles and compacts in the bag. Then spoon it loosely into the measuring cup, letting it mound slightly above the rim without pressing or tapping. Finally, sweep the flat back of a knife across the top to level it off.</p>
-      <p>What you should never do is scoop the cup straight into the bag. Scooping compresses dry ingredients, and a scooped cup of flour can weigh 15–25% more than a spooned one — easily enough to turn a light cake dense. The one deliberate exception is brown sugar, which recipes expect to be firmly packed into the cup.</p>
+      <p>Every figure on this page assumes the spoon-and-level method, and it matters more than most cooks realise. First, fluff the ingredient in its container. Flour in particular settles and compacts in the bag. Then spoon it loosely into the measuring cup, letting it mound slightly above the rim without pressing or tapping. Finally, sweep the flat back of a knife across the top to level it off.</p>
+      <p>What you should never do is scoop the cup straight into the bag. Scooping compresses dry ingredients, and a scooped cup of flour can weigh 15-25% more than a spooned one, easily enough to turn a light cake dense. The one deliberate exception is brown sugar, which recipes expect to be firmly packed into the cup.</p>
 
       <p>Got more questions about cups, grams and kitchen measures? See the <a href="/faq">FAQ</a>, or head back to the <a href="/">universal unit converter</a> for every other conversion.</p>
 
@@ -128,7 +129,7 @@
         </ul>
       </div>
     </div>
-    <p class="footer-fine">© 2026 MeasureMate. Conversions are provided for general information — always double-check measurements that matter.</p>
+    <p class="footer-fine">© 2026 MeasureMate. Conversions are provided for general information. Always double-check measurements that matter.</p>
   </div>
 </footer>
 
