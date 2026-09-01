@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://measurem8.app/sitemap.xml
-Sitemap: https://measurem8.app/sitemap-converters.xml

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KB, MB, GB and TB Explained (and Why a 1 TB Drive Shows 931 GB) | MeasureMate</title>
+<meta name="description" content="Kilobytes, megabytes, gigabytes and terabytes explained: decimal vs binary units, why drives look smaller than advertised, and how to reason about file sizes.">
+<link rel="canonical" href="https://measurem8.app/digital-storage-explained">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://measurem8.app/digital-storage-explained">
+<meta property="og:site_name" content="MeasureMate">
+<meta property="og:title" content="KB, MB, GB and TB Explained (and Why a 1 TB Drive Shows 931 GB) | MeasureMate">
+<meta property="og:description" content="Kilobytes, megabytes, gigabytes and terabytes explained: decimal vs binary units, why drives look smaller than advertised, and how to reason about file sizes.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7686583236583712" crossorigin="anonymous"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f766e'/%3E%3Ctext x='50' y='70' font-size='54' text-anchor='middle' fill='white' font-family='Arial'%3E%E2%87%84%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "KB, MB, GB and TB, explained",
+  "description": "Kilobytes, megabytes, gigabytes and terabytes explained: decimal vs binary units, why drives look smaller than advertised, and how to reason about file sizes.",
+  "url": "https://measurem8.app/digital-storage-explained",
+  "publisher": { "@type": "Organization", "name": "MeasureMate" }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">⇄</span> MeasureMate</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/cups-to-grams">Cups to Grams</a>
+      <a href="/cm-to-inches">cm to Inches</a>
+      <a href="/celsius-to-fahrenheit">°C to °F</a>
+      <a href="/convert/">Converters</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+
+    <section class="hero page-hero">
+      <h1>KB, MB, GB and TB, explained</h1>
+      <p class="tagline">Bits, bytes, decimal versus binary, and the honest arithmetic behind the drive that says 1 TB on the box but 931 GB on the screen.</p>
+    </section>
+
+    <div class="page-content" data-reveal>
+
+      <h2>Bits and bytes are different units</h2>
+      <p>The confusion around digital storage starts with two units that sound nearly identical. A bit is a single binary digit, a one or a zero, and it is the unit your internet plan is sold in. A byte is eight bits, and it is the unit your files are measured in. Networking has always been advertised in bits per second; storage has always been counted in bytes. Both conventions are consistent on their own, and side by side they mislead almost everyone.</p>
+      <p>Here is the trap in practice. A 100 megabit per second connection does not move 100 megabytes each second. Divide by eight: 100 Mbps is 12.5 MB/s. A 2.5 GB game update is 2,500 MB, and 2,500 divided by 12.5 is 200 seconds, a touch over three minutes. Call it three and a half once you allow for the usual protocol overhead, and that assumes the connection is actually delivering its advertised speed. Skip the divide-by-eight step and you expect the same download to finish in 25 seconds, then wonder what is wrong with your internet. Nothing is. The units differ by a factor of eight.</p>
+      <p>The letter case is your only warning. A lowercase b means bits, as in Mbps and Gbps. An uppercase B means bytes, as in MB/s and GB. One keystroke apart, eight times different.</p>
+
+      <h2>Decimal kilobytes and binary kibibytes</h2>
+      <p>The second trap is subtler, and it is the one that sends people searching for answers the day a new drive arrives. There are two competing definitions of the kilobyte and everything above it.</p>
+      <p>The decimal system follows the same SI prefixes used across all measurement: kilo means 1,000, mega means 1,000,000, and so on up the ladder. So 1 kB is exactly 1,000 bytes and 1 TB is exactly 10<sup>12</sup> bytes, one trillion. This is how drive manufacturers label their products, and it is how macOS has reported file and disk sizes since 2009. (Strictly, SI writes the kilo symbol lowercase, kB, though you will see KB everywhere.)</p>
+      <p>The binary system grew out of how computers address memory, which is organised in powers of two. Since 2<sup>10</sup> is 1,024, close enough to 1,000, early engineers borrowed the metric prefixes and quietly changed their values. To keep the two systems apart, the binary units were later given their own names: the kibibyte (KiB, 1,024 bytes), mebibyte (MiB, 1,048,576 bytes), gibibyte (GiB, 1,073,741,824 bytes) and tebibyte (TiB, 1,099,511,627,776 bytes). Windows still measures in these binary units but labels them with the decimal symbols, which is exactly where the famous discrepancy comes from.</p>
+      <p>The arithmetic is honest on both sides. A 1 TB drive genuinely contains one trillion bytes. Divide that by 1,073,741,824, the number of bytes in a gibibyte, and you get 931.3. Windows performs that division and then prints GB instead of GiB, so your trillion bytes appear on screen as 931 GB. Nothing has been removed; the same bytes are being counted with a bigger bucket. The same maths says a 256 GB phone reports roughly 238 GB and a 512 GB SSD roughly 476 GB, before the operating system takes its own slice.</p>
+
+      <aside class="ad-slot" aria-label="Advertisement">
+        <span class="ad-label">Advertisement</span>
+        <!-- AdSense: paste your ad unit code here (in-content slot) -->
+      </aside>
+
+      <h2>The storage ladder</h2>
+      <p>The table below uses the decimal SI definitions, the same figures MeasureMate's digital storage converter is built on. Every byte count here is exact, not rounded. The right hand column shows the binary counterpart at each rung so you can see how the gap widens as the units grow.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Unit</th><th>Symbol</th><th>Exact bytes (decimal SI)</th><th>Binary counterpart</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bit</td><td>bit</td><td>0.125 B (8 bits = 1 byte)</td><td>same in both systems</td></tr>
+            <tr><td>Byte</td><td>B</td><td>1 B</td><td>same in both systems</td></tr>
+            <tr><td>Kilobyte</td><td>kB</td><td>1,000 B</td><td>1 KiB = 1,024 B</td></tr>
+            <tr><td>Megabyte</td><td>MB</td><td>1,000,000 B</td><td>1 MiB = 1,048,576 B</td></tr>
+            <tr><td>Gigabyte</td><td>GB</td><td>1,000,000,000 B</td><td>1 GiB = 1,073,741,824 B</td></tr>
+            <tr><td>Terabyte</td><td>TB</td><td>1,000,000,000,000 B</td><td>1 TiB = 1,099,511,627,776 B</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Notice the drift. At the kilobyte level the two systems differ by 2.4%, barely worth mentioning. By the terabyte level the gap has compounded to nearly 10%, which is why nobody noticed on floppy disks but everybody notices on a new hard drive.</p>
+
+      <h2>What files actually weigh</h2>
+      <p>Numbers on a ladder stay abstract until you hang familiar objects on them, so here are honest ranges rather than fake precision. A photo from a recent phone lands between 2 and 5 MB as a JPEG or HEIC. A three or four minute song at normal streaming quality runs 3 to 10 MB, and several times that if you keep lossless files. A two hour film spans a huge range depending on quality: around 1.5 GB at DVD-like compression, 4 to 8 GB in decent HD, and past 20 GB for a high bitrate 4K download. Ordinary office files barely register. A spreadsheet with a few thousand rows is usually tens to hundreds of kilobytes, and a page of plain text is a few kB at most.</p>
+      <p>Those ranges give you working intuition. At 4 MB per photo, a gigabyte holds about 250 of them, so even the 69 GB that a terabyte drive appears to lose to unit accounting would still have held roughly 17,000 photos. The gap feels large because the number is large, not because the percentage is.</p>
+
+      <h2>How MeasureMate counts storage</h2>
+      <p>The digital storage family in the converter uses decimal SI throughout: 1 kB is 1,000 bytes, 1 MB is 10<sup>6</sup>, 1 GB is 10<sup>9</sup> and 1 TB is 10<sup>12</sup>. That is a deliberate choice, and it matches the philosophy behind the rest of the site. Every converter here is built on exact published definitions, the way an inch is exactly 2.54 cm, and the decimal units are the only storage units whose values actually match their prefixes. Ask the tool for 1 TB in GB and you will get 1,000, the label maths, which is the correct answer to the question as asked. The 931 figure belongs to a different unit, the gibibyte, whether or not your operating system admits it.</p>
+
+      <h2>Checking your own drive</h2>
+      <p>You can verify all of this in about a minute. On Windows, right click a drive in Explorer and choose Properties. You will see the capacity twice: once as an exact byte count and once as the binary-flavoured figure labelled GB. The gap between the two is exactly the decimal-to-binary ratio explained above. On a Mac, select the drive and press Get Info; macOS counts in decimal, so a 1 TB drive reads close to 1 TB, with the full byte count shown alongside.</p>
+      <p>Expect a little further shrinkage beyond the unit accounting. The file system keeps its own bookkeeping structures on the disk, and many machines ship with a recovery partition set aside by the manufacturer, so a few gigabytes vanish before you store a single file. None of it is missing hardware. The number on the box and the number on the screen describe the same platters and the same flash; they simply answer with different units, and now you can translate between them.</p>
+
+      <p>Next time you need to move between these units, the converter does the exact arithmetic for you: try <a href="/?from=tb&amp;to=gb">TB to GB</a> or <a href="/?from=mb&amp;to=gb">MB to GB</a>. For more on how the site defines its units, see the <a href="/faq">FAQ</a>.</p>
+
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <aside class="ad-slot" aria-label="Advertisement">
+      <span class="ad-label">Advertisement</span>
+      <!-- AdSense: paste your ad unit code here (slot 3 — footer) -->
+    </aside>
+    <div class="footer-cols">
+      <div>
+        <p class="footer-brand"><span class="brand-mark" aria-hidden="true">⇄</span> MeasureMate</p>
+        <p class="footer-blurb">A fast, free unit converter with an ingredient-accurate cooking mode. Built for cooks, students, makers and travellers.</p>
+      </div>
+      <div>
+        <h3>Converters</h3>
+        <ul>
+          <li><a href="/">Universal converter</a></li>
+          <li><a href="/cups-to-grams">Cups to grams</a></li>
+          <li><a href="/cm-to-inches">cm to inches</a></li>
+          <li><a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul>
+          <li><a href="/baking-conversion-guide">Baking conversions</a></li>
+          <li><a href="/us-uk-australian-measurements">US vs UK vs AU measures</a></li>
+          <li><a href="/height-weight-conversions">Height &amp; weight</a></li>
+          <li><a href="/digital-storage-explained">Digital storage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-fine">© 2026 MeasureMate. Conversions are provided for general information. Always double-check measurements that matter.</p>
+  </div>
+</footer>
+
+</body>
+</html>
