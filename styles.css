@@ -489,3 +489,24 @@ tbody tr:last-child td { border-bottom: 0; }
   .page-content { display: none; }
   @page { margin: 11mm; }
 }
+
+/* ---------- Kitchen hub ---------- */
+.guide-group { max-width: 980px; margin: 34px auto 0; }
+.guide-group > h2 { font-family: var(--display); font-size: clamp(1.25rem, 2.4vw, 1.55rem); margin: 0 0 14px; }
+.guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.guide-card {
+  display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-inner);
+  padding: 18px 20px; color: var(--ink); text-decoration: none;
+  transition: border-color 0.18s var(--ease), box-shadow 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.guide-card:hover { border-color: var(--accent); box-shadow: var(--shadow-card); transform: translateY(-2px); }
+.guide-card h3 { margin: 0 0 6px; font-family: var(--display); font-size: 1.08rem; color: var(--accent-ink); }
+.guide-card p { margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.5; }
+.guide-card .fact { display: block; margin-top: 10px; font-weight: 650; color: var(--ink); font-size: 0.9rem; }
+@media (prefers-reduced-motion: reduce) { .guide-card, .guide-card:hover { transition: none; transform: none; } }
+
+/* ---------- Compact nav on phones (keeps 7 links to two rows) ---------- */
+@media (max-width: 480px) {
+  .site-nav { justify-content: center; font-size: 0.86rem; }
+  .site-nav a { padding: 6px 9px; }
+}
