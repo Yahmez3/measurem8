@@ -52,7 +52,7 @@
   </url>
   <url>
     <loc>https://measurem8.app/us-uk-australian-measurements</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
@@ -112,6 +112,16 @@
   </url>
   <url>
     <loc>https://measurem8.app/rice-cups-to-grams</loc>
+    <lastmod>2026-11-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://measurem8.app/fluid-ounces-pints-gallons</loc>
+    <lastmod>2026-11-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://measurem8.app/tablespoons-teaspoons</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.7</priority>
   </url>

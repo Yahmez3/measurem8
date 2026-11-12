@@ -78,6 +78,7 @@
         { id: 'pint',   name: 'Pint (US)',        symbol: 'pt',    factor: 0.473176473 },
         { id: 'pint-uk', name: 'Pint (UK)',       symbol: 'UK pt', factor: 0.56826125 },
         { id: 'quart',  name: 'Quart (US)',       symbol: 'qt',    factor: 0.946352946 },
+        { id: 'quart-uk', name: 'Quart (UK)',     symbol: 'UK qt', factor: 1.1365225 },
         { id: 'gallon', name: 'Gallon (US)',      symbol: 'gal',   factor: 3.785411784 },
         { id: 'gallon-uk', name: 'Gallon (UK)',   symbol: 'UK gal', factor: 4.54609 }
       ]
@@ -219,6 +220,12 @@
     { id: 'rice-cooked',  name: 'White rice, cooked',          gramsPerCup: 158, note: 'cooked, loosely filled' },
     { id: 'rice-brown-cooked', name: 'Brown rice, cooked',     gramsPerCup: 170, note: 'cooked, loosely filled' },
     { id: 'salt',         name: 'Salt (table)',                gramsPerCup: 288 },
+    { id: 'salt-kosher-dc', name: 'Kosher salt (Diamond Crystal)', gramsPerCup: 128 },
+    { id: 'salt-kosher-morton', name: 'Kosher salt (Morton)',   gramsPerCup: 256 },
+    { id: 'bakingpowder', name: 'Baking powder',               gramsPerCup: 192 },
+    { id: 'bakingsoda',   name: 'Baking soda / bicarb soda',   gramsPerCup: 288 },
+    { id: 'yeast-instant', name: 'Instant yeast',              gramsPerCup: 144 },
+    { id: 'vanilla',      name: 'Vanilla extract',             gramsPerCup: 224 },
     { id: 'oil-olive',    name: 'Olive oil',                   gramsPerCup: 216 },
     { id: 'oil-veg',      name: 'Vegetable oil',               gramsPerCup: 218 },
     { id: 'pb',           name: 'Peanut butter',               gramsPerCup: 270 },
