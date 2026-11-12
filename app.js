@@ -168,6 +168,7 @@
   var COOKING_UNITS = [
     { id: 'cup',  name: 'Cup (240 mL)',        symbol: 'cup',   type: 'vol', cups: 1 },
     { id: 'cup-au',  name: 'Australian cup (250 mL)',       symbol: 'AU cup',  type: 'vol', cups: 250 / 240 },
+    { id: 'stick', name: 'US butter stick (1/2 cup)', symbol: 'stick', type: 'vol', cups: 1 / 2 },
     { id: 'tbsp', name: 'Tablespoon (15 mL)',  symbol: 'tbsp',  type: 'vol', cups: 1 / 16 },
     { id: 'tbsp-au', name: 'Australian tablespoon (20 mL)', symbol: 'AU tbsp', type: 'vol', cups: 20 / 240 },
     { id: 'tsp',  name: 'Teaspoon (5 mL)',     symbol: 'tsp',   type: 'vol', cups: 1 / 48 },
@@ -194,7 +195,7 @@
     { id: 'sugar-caster', name: 'Caster (superfine) sugar',    gramsPerCup: 210 },
     { id: 'sugar-brown',  name: 'Brown sugar',                 gramsPerCup: 220, note: 'firmly packed' },
     { id: 'sugar-icing',  name: 'Icing / powdered sugar',      gramsPerCup: 120, note: 'unsifted' },
-    { id: 'butter',       name: 'Butter',                      gramsPerCup: 227 },
+    { id: 'butter',       name: 'Butter',                      gramsPerCup: 226.8 }, // 2 US sticks = 8 oz exactly
     { id: 'milk',         name: 'Milk',                        gramsPerCup: 245 },
     { id: 'evapmilk',     name: 'Evaporated milk',             gramsPerCup: 256 },
     { id: 'condensedmilk', name: 'Sweetened condensed milk',   gramsPerCup: 310 },
