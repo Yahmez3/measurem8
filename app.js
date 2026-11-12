@@ -70,11 +70,16 @@
         { id: 'l',      name: 'Litre',            symbol: 'L',     factor: 1 },
         { id: 'tsp',    name: 'Teaspoon (US)',    symbol: 'tsp',   factor: 0.00492892159375 },
         { id: 'tbsp',   name: 'Tablespoon (US)',  symbol: 'tbsp',  factor: 0.01478676478125 },
+        { id: 'tbsp-au', name: 'Tablespoon (Australian)', symbol: 'AU tbsp', factor: 0.02 },
         { id: 'floz',   name: 'Fluid ounce (US)', symbol: 'fl oz', factor: 0.0295735295625 },
+        { id: 'floz-uk', name: 'Fluid ounce (UK)', symbol: 'UK fl oz', factor: 0.0284130625 },
         { id: 'cup',    name: 'Cup (US)',         symbol: 'cup',   factor: 0.2365882365 },
+        { id: 'cup-au', name: 'Cup (Australian metric)', symbol: 'AU cup', factor: 0.25 },
         { id: 'pint',   name: 'Pint (US)',        symbol: 'pt',    factor: 0.473176473 },
+        { id: 'pint-uk', name: 'Pint (UK)',       symbol: 'UK pt', factor: 0.56826125 },
         { id: 'quart',  name: 'Quart (US)',       symbol: 'qt',    factor: 0.946352946 },
-        { id: 'gallon', name: 'Gallon (US)',      symbol: 'gal',   factor: 3.785411784 }
+        { id: 'gallon', name: 'Gallon (US)',      symbol: 'gal',   factor: 3.785411784 },
+        { id: 'gallon-uk', name: 'Gallon (UK)',   symbol: 'UK gal', factor: 4.54609 }
       ]
     },
     {
@@ -162,7 +167,9 @@
    */
   var COOKING_UNITS = [
     { id: 'cup',  name: 'Cup (240 mL)',        symbol: 'cup',   type: 'vol', cups: 1 },
+    { id: 'cup-au',  name: 'Australian cup (250 mL)',       symbol: 'AU cup',  type: 'vol', cups: 250 / 240 },
     { id: 'tbsp', name: 'Tablespoon (15 mL)',  symbol: 'tbsp',  type: 'vol', cups: 1 / 16 },
+    { id: 'tbsp-au', name: 'Australian tablespoon (20 mL)', symbol: 'AU tbsp', type: 'vol', cups: 20 / 240 },
     { id: 'tsp',  name: 'Teaspoon (5 mL)',     symbol: 'tsp',   type: 'vol', cups: 1 / 48 },
     { id: 'ml',   name: 'Millilitre',          symbol: 'mL',    type: 'vol', cups: 1 / 240 },
     { id: 'l',    name: 'Litre',               symbol: 'L',     type: 'vol', cups: 1000 / 240 },
@@ -189,7 +196,10 @@
     { id: 'sugar-icing',  name: 'Icing / powdered sugar',      gramsPerCup: 120, note: 'unsifted' },
     { id: 'butter',       name: 'Butter',                      gramsPerCup: 227 },
     { id: 'milk',         name: 'Milk',                        gramsPerCup: 245 },
+    { id: 'evapmilk',     name: 'Evaporated milk',             gramsPerCup: 256 },
+    { id: 'condensedmilk', name: 'Sweetened condensed milk',   gramsPerCup: 310 },
     { id: 'water',        name: 'Water',                       gramsPerCup: 240 },
+    { id: 'stock',        name: 'Stock / broth',               gramsPerCup: 240 },
     { id: 'honey',        name: 'Honey',                       gramsPerCup: 340 },
     { id: 'syrup-golden', name: 'Golden syrup',                gramsPerCup: 340 },
     { id: 'syrup-maple',  name: 'Maple syrup',                 gramsPerCup: 320 },
