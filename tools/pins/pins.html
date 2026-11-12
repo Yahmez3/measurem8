@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>MeasureMate Pinterest pin sources</title>
+<!-- Source for the Pinterest pin images. Rendered to /pins/*.png by render.js.
+     Every figure here must match the live site (app.js and the pages each pin links to). -->
+<style>
+  @font-face { font-family: 'Outfit'; font-weight: 300 800; src: url('../../fonts/outfit-latin.woff2') format('woff2'); }
+  :root {
+    --teal: #0f766e; --teal-ink: #0b5d57; --deep: #10201c; --soft: #e4f1ee;
+    --paper: #f6f8f7; --ink: #17221f; --muted: #55645f; --line: #d5e2dd; --warm: #f3b23c;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #888; font-family: 'Outfit', sans-serif; color: var(--ink); }
+  .pin {
+    width: 1000px; height: 1500px; position: relative; overflow: hidden;
+    background: var(--paper); display: flex; flex-direction: column; padding: 64px 64px 0;
+    margin: 0 0 40px;
+  }
+  .brand { display: flex; align-items: center; gap: 16px; font-size: 34px; font-weight: 650; color: var(--deep); }
+  .brand img { width: 56px; height: 56px; }
+  .kicker {
+    display: inline-block; align-self: flex-start; margin: 44px 0 18px; padding: 10px 22px;
+    background: var(--teal); color: #fff; border-radius: 999px;
+    font-size: 26px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  h1 { margin: 0; font-size: 92px; line-height: 1.0; font-weight: 800; letter-spacing: -0.02em; color: var(--deep); }
+  h1 em { font-style: normal; color: var(--teal); }
+  .sub { margin: 22px 0 0; font-size: 36px; line-height: 1.25; color: var(--muted); font-weight: 450; }
+  .card {
+    margin-top: 40px; background: #fff; border-radius: 34px; padding: 28px 34px;
+    box-shadow: 0 2px 4px rgba(16,32,28,.05), 0 30px 60px -30px rgba(15,118,110,.35);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 36px; }
+  th { text-align: left; font-size: 26px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--teal-ink); padding: 8px 10px 14px; border-bottom: 3px solid var(--soft); }
+  td { padding: 13px 10px; border-bottom: 2px solid var(--soft); font-weight: 450; }
+  tr:last-child td { border-bottom: 0; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  td.n { font-weight: 650; }
+  .foot {
+    margin: auto -64px 0; background: var(--deep); color: #fff; padding: 34px 64px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .foot .url { font-size: 44px; font-weight: 750; letter-spacing: -0.01em; }
+  .foot .what { font-size: 26px; color: #b9d6cf; text-align: right; line-height: 1.3; }
+  .callout {
+    margin-top: 30px; background: var(--soft); border-left: 10px solid var(--teal);
+    border-radius: 22px; padding: 24px 30px; font-size: 34px; line-height: 1.3; font-weight: 500;
+  }
+  .callout b { color: var(--teal-ink); }
+  .dense table { font-size: 32px; }
+  .dense td { padding: 9px 10px; }
+  .small { font-size: 24px; color: var(--muted); margin: 14px 4px 0; line-height: 1.35; }
+
+  /* pin 3: flour */
+  .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 44px; }
+  .stat { background: #fff; border-radius: 34px; padding: 34px 30px 30px; text-align: center; box-shadow: 0 30px 60px -30px rgba(15,118,110,.35); }
+  .stat .lab { font-size: 30px; font-weight: 650; color: var(--muted); }
+  .stat .big { font-size: 150px; font-weight: 800; line-height: 1; margin: 16px 0 6px; color: var(--teal); letter-spacing: -0.03em; }
+  .stat .big small { font-size: 60px; }
+  .stat.bad .big { color: #b45309; }
+  .stat .cap { font-size: 28px; color: var(--muted); }
+  .steps { margin-top: 34px; display: grid; gap: 18px; }
+  .step { display: flex; gap: 24px; align-items: center; background: #fff; border-radius: 26px; padding: 22px 28px; font-size: 36px; font-weight: 500; }
+  .step .num { flex: 0 0 66px; height: 66px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 36px; }
+
+  /* pin 4: butter equation */
+  .eq { margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .eq div { background: var(--deep); color: #fff; border-radius: 26px; padding: 22px 10px; text-align: center; }
+  .eq b { display: block; font-size: 58px; font-weight: 800; line-height: 1.05; }
+  .eq span { font-size: 24px; color: #b9d6cf; }
+  .eq div.hl { background: var(--teal); }
+
+  /* pin 1: chart mini grid */
+  .mini { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px; margin-top: 36px; }
+  .mini .card { margin-top: 0; padding: 22px 24px; }
+  .mini table { font-size: 27px; }
+  .mini th { font-size: 20px; padding: 6px 6px 10px; }
+  .mini td { padding: 9px 6px; }
+  .mini h3 { margin: 0 0 8px; font-size: 26px; color: var(--teal-ink); font-weight: 750; }
+  .stack { display: grid; gap: 24px; }
+</style>
+</head>
+<body>
+
+<!-- 1. Printable chart -> /printable-kitchen-conversion-chart -->
+<section class="pin" id="kitchen-conversion-chart">
+  <div class="brand"><img src="../../brand/logo-mark.svg" alt=""> MeasureMate</div>
+  <span class="kicker">Free printable</span>
+  <h1>Kitchen <em>conversion</em> chart</h1>
+  <p class="sub">Cups to grams, spoons, butter and oven temperatures on one page.</p>
+  <div class="mini">
+    <div class="card">
+      <h3>Cups to grams</h3>
+      <table>
+        <thead><tr><th>Ingredient</th><th class="n">½ cup</th><th class="n">1 cup</th></tr></thead>
+        <tbody>
+          <tr><td>Plain flour</td><td class="n">60 g</td><td class="n">120 g</td></tr>
+          <tr><td>White sugar</td><td class="n">100 g</td><td class="n">200 g</td></tr>
+          <tr><td>Brown sugar</td><td class="n">110 g</td><td class="n">220 g</td></tr>
+          <tr><td>Icing sugar</td><td class="n">60 g</td><td class="n">120 g</td></tr>
+          <tr><td>Butter</td><td class="n">113 g</td><td class="n">227 g</td></tr>
+          <tr><td>Cocoa</td><td class="n">43 g</td><td class="n">85 g</td></tr>
+          <tr><td>Rolled oats</td><td class="n">45 g</td><td class="n">90 g</td></tr>
+          <tr><td>Honey</td><td class="n">170 g</td><td class="n">340 g</td></tr>
+          <tr><td>Milk</td><td class="n">123 g</td><td class="n">245 g</td></tr>
+          <tr><td>Water</td><td class="n">120 g</td><td class="n">240 g</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <h3>Oven</h3>
+        <table>
+          <thead><tr><th>°C</th><th>Fan</th><th class="n">°F</th></tr></thead>
+          <tbody>
+            <tr><td>160</td><td>140</td><td class="n">325</td></tr>
+            <tr><td>180</td><td>160</td><td class="n">350</td></tr>
+            <tr><td>200</td><td>180</td><td class="n">400</td></tr>
+            <tr><td>220</td><td>200</td><td class="n">425</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Spoons</h3>
+        <table>
+          <tbody>
+            <tr><td>1 tsp</td><td class="n">5 mL</td></tr>
+            <tr><td>1 tbsp</td><td class="n">15 mL</td></tr>
+            <tr><td>AU tbsp</td><td class="n">20 mL</td></tr>
+            <tr><td>1 cup</td><td class="n">240 mL</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <p class="small">US recipe cup (240 mL), spooned and levelled; brown sugar packed.</p>
+  <div class="foot"><span class="url">measurem8.app</span><span class="what">Print the full chart free<br>No sign-up</span></div>
+</section>
+
+<!-- 2. Cups to grams -> /cups-to-grams -->
+<section class="pin" id="cups-to-grams">
+  <div class="brand"><img src="../../brand/logo-mark.svg" alt=""> MeasureMate</div>
+  <span class="kicker">Baking cheat sheet</span>
+  <h1>Cups to grams for <em>12 baking staples</em></h1>
+  <div class="card dense">
+    <table>
+      <thead><tr><th>Ingredient</th><th class="n">¼ cup</th><th class="n">½ cup</th><th class="n">1 cup</th></tr></thead>
+      <tbody>
+        <tr><td>Plain flour</td><td class="n">30 g</td><td class="n">60 g</td><td class="n">120 g</td></tr>
+        <tr><td>White sugar</td><td class="n">50 g</td><td class="n">100 g</td><td class="n">200 g</td></tr>
+        <tr><td>Brown sugar, packed</td><td class="n">55 g</td><td class="n">110 g</td><td class="n">220 g</td></tr>
+        <tr><td>Icing sugar</td><td class="n">30 g</td><td class="n">60 g</td><td class="n">120 g</td></tr>
+        <tr><td>Butter</td><td class="n">57 g</td><td class="n">113 g</td><td class="n">227 g</td></tr>
+        <tr><td>Cocoa powder</td><td class="n">21 g</td><td class="n">43 g</td><td class="n">85 g</td></tr>
+        <tr><td>Rolled oats</td><td class="n">23 g</td><td class="n">45 g</td><td class="n">90 g</td></tr>
+        <tr><td>White rice</td><td class="n">46 g</td><td class="n">93 g</td><td class="n">185 g</td></tr>
+        <tr><td>Honey</td><td class="n">85 g</td><td class="n">170 g</td><td class="n">340 g</td></tr>
+        <tr><td>Milk</td><td class="n">61 g</td><td class="n">123 g</td><td class="n">245 g</td></tr>
+        <tr><td>Water</td><td class="n">60 g</td><td class="n">120 g</td><td class="n">240 g</td></tr>
+        <tr><td>Vegetable oil</td><td class="n">55 g</td><td class="n">109 g</td><td class="n">218 g</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">US recipe cup (240 mL), spooned and levelled. 1 cup of flour is not 1 cup of sugar.</p>
+  <div class="foot"><span class="url">measurem8.app</span><span class="what">Free converter for<br>40+ ingredients</span></div>
+</section>
+
+<!-- 3. Flour -> /flour-cups-to-grams -->
+<section class="pin" id="flour-cups-to-grams">
+  <div class="brand"><img src="../../brand/logo-mark.svg" alt=""> MeasureMate</div>
+  <span class="kicker">Why your cake came out dry</span>
+  <h1>How you fill the cup <em>changes the flour</em></h1>
+  <div class="vs">
+    <div class="stat"><div class="lab">Spooned &amp; levelled</div><div class="big">120<small>g</small></div><div class="cap">what recipes expect</div></div>
+    <div class="stat bad"><div class="lab">Packed down: up to</div><div class="big">160<small>g</small></div><div class="cap">up to a third more</div></div>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="num">1</span>Fluff the flour in the bag with a spoon</div>
+    <div class="step"><span class="num">2</span>Spoon it into the cup until it overflows</div>
+    <div class="step"><span class="num">3</span>Level the top with the back of a knife</div>
+  </div>
+  <p class="small">1 US cup of plain flour. Figures from King Arthur Baking.</p>
+  <div class="foot"><span class="url">measurem8.app</span><span class="what">Every flour, cups to grams<br>and grams to cups</span></div>
+</section>
+
+<!-- 4. Butter -> /butter-sticks-to-grams -->
+<section class="pin" id="butter-sticks-to-grams">
+  <div class="brand"><img src="../../brand/logo-mark.svg" alt=""> MeasureMate</div>
+  <span class="kicker">American recipe?</span>
+  <h1>Butter: <em>sticks, cups</em> and grams</h1>
+  <div class="eq">
+    <div class="hl"><b>1</b><span>stick</span></div>
+    <div><b>½</b><span>cup</span></div>
+    <div><b>8</b><span>tablespoons</span></div>
+    <div><b>113</b><span>grams</span></div>
+  </div>
+  <div class="card">
+    <table>
+      <thead><tr><th>US measure</th><th class="n">Grams</th></tr></thead>
+      <tbody>
+        <tr><td>1 tablespoon</td><td class="n">14 g</td></tr>
+        <tr><td>¼ cup (½ stick)</td><td class="n">57 g</td></tr>
+        <tr><td>½ cup (1 stick)</td><td class="n">113 g</td></tr>
+        <tr><td>¾ cup (1½ sticks)</td><td class="n">170 g</td></tr>
+        <tr><td>1 cup (2 sticks)</td><td class="n">227 g</td></tr>
+        <tr><td>2 cups (1 lb)</td><td class="n">454 g</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">A <b>250 g block</b> (Australia, UK) is <b>2.2 sticks</b>, a little over 1 cup.</div>
+  <div class="foot"><span class="url">measurem8.app</span><span class="what">Salted vs unsalted swaps<br>and more</span></div>
+</section>
+
+<!-- 5. US vs UK vs AU -> /us-uk-australian-measurements -->
+<section class="pin" id="us-uk-australian-measurements">
+  <div class="brand"><img src="../../brand/logo-mark.svg" alt=""> MeasureMate</div>
+  <span class="kicker">Same name, different size</span>
+  <h1>US vs UK vs <em>Australian</em> measures</h1>
+  <div class="card">
+    <table>
+      <thead><tr><th>Measure</th><th class="n">US</th><th class="n">UK</th><th class="n">AU</th></tr></thead>
+      <tbody>
+        <tr><td>Teaspoon</td><td class="n">5 mL</td><td class="n">5 mL</td><td class="n">5 mL</td></tr>
+        <tr><td>Tablespoon</td><td class="n">15 mL</td><td class="n">15 mL</td><td class="n">20 mL</td></tr>
+        <tr><td>Cup</td><td class="n">240 mL</td><td class="n">284 mL*</td><td class="n">250 mL</td></tr>
+        <tr><td>Fluid ounce</td><td class="n">29.6 mL</td><td class="n">28.4 mL</td><td class="n">–</td></tr>
+        <tr><td>Pint</td><td class="n">473 mL</td><td class="n">568 mL</td><td class="n">–</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">US measuring cups hold 236.6 mL; recipes use 240 mL. *Old British cup; modern UK recipes use grams.</p>
+  <div class="callout">An <b>Australian tablespoon is 20 mL</b>, a third bigger. For baking soda, salt or gelatine in an American or British recipe, use <b>3 level teaspoons</b>.</div>
+  <div class="foot"><span class="url">measurem8.app</span><span class="what">Free US, UK and<br>Australian converter</span></div>
+</section>
+
+<!-- 6. Oven -> /baking-conversion-guide -->
+<section class="pin" id="oven-temperatures">
+  <div class="brand"><img src="../../brand/logo-mark.svg" alt=""> MeasureMate</div>
+  <span class="kicker">Oven temperatures</span>
+  <h1>°C, fan, °F <em>and gas mark</em></h1>
+  <div class="card">
+    <table>
+      <thead><tr><th>Conventional</th><th>Fan</th><th class="n">°F</th><th class="n">Gas</th></tr></thead>
+      <tbody>
+        <tr><td>150 °C</td><td>130 °C</td><td class="n">300 °F</td><td class="n">2</td></tr>
+        <tr><td>160 °C</td><td>140 °C</td><td class="n">325 °F</td><td class="n">3</td></tr>
+        <tr><td>180 °C</td><td>160 °C</td><td class="n">350 °F</td><td class="n">4</td></tr>
+        <tr><td>190 °C</td><td>170 °C</td><td class="n">375 °F</td><td class="n">5</td></tr>
+        <tr><td>200 °C</td><td>180 °C</td><td class="n">400 °F</td><td class="n">6</td></tr>
+        <tr><td>220 °C</td><td>200 °C</td><td class="n">425 °F</td><td class="n">7</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><b>Fan-forced oven?</b> Drop the recipe's temperature by about <b>20 °C</b>. Most recipes are written for conventional heat.</div>
+  <div class="foot"><span class="url">measurem8.app</span><span class="what">The complete baking<br>conversion guide</span></div>
+</section>
+
+<script>
+  document.fonts.ready.then(function () { window.READY = true; });
+</script>
+</body>
+</html>
