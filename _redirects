@@ -93,3 +93,20 @@
 /convert/gallons-to-liters /fluid-ounces-pints-gallons 301
 /convert/liters-to-gallons/ /fluid-ounces-pints-gallons 301
 /convert/liters-to-gallons /fluid-ounces-pints-gallons 301
+# Body height and weight /convert pages consolidated into the height and weight guide (2026-11-12).
+/convert/cm-to-feet/ /height-weight-conversions 301
+/convert/cm-to-feet /height-weight-conversions 301
+/convert/feet-to-cm/ /height-weight-conversions 301
+/convert/feet-to-cm /height-weight-conversions 301
+/convert/kg-to-lbs/ /height-weight-conversions 301
+/convert/kg-to-lbs /height-weight-conversions 301
+/convert/lbs-to-kg/ /height-weight-conversions 301
+/convert/lbs-to-kg /height-weight-conversions 301
+/convert/kg-to-stone/ /height-weight-conversions 301
+/convert/kg-to-stone /height-weight-conversions 301
+/convert/stone-to-kg/ /height-weight-conversions 301
+/convert/stone-to-kg /height-weight-conversions 301
+/convert/lbs-to-stone/ /height-weight-conversions 301
+/convert/lbs-to-stone /height-weight-conversions 301
+/convert/stone-to-lbs/ /height-weight-conversions 301
+/convert/stone-to-lbs /height-weight-conversions 301
